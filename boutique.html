@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grandière – Comtesse de La Grandière</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+      Comtesse de La Grandière
+      <span class="sub-logo">Agency</span>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="/">Accueil</a></li>
+        <li><a href="/models.html">Talents</a></li>
+        <li><a href="/news.html">News</a></li>
+        <li><a href="/boutique.html">Grandière</a></li>
+        <li><a href="/apply.html">Devenir modèle</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="collection-page">
+    <section class="collection-hero">
+      <h1>Grandière</h1>
+      <p class="intro">La ligne signature de l’agence : des pièces couture qui célèbrent le corps réel, les volumes assumés et l’élégance vécue. Chaque création est portée, habitée, incarnée par nos talents.</p>
+    </section>
+
+    <section class="collection-grid">
+      <div class="piece-card reveal-on-scroll">
+        <img src="images/karoline-2.jpg" alt="Robe Grandière Volumée – Portée par Karoline Kilgaard">
+        <div class="piece-info">
+          <h3>Robe Volumée Asymétrique</h3>
+          <p class="description">Tulle structuré, drapés organiques, volumes exigeants. Une pièce qui demande présence et précision dans le geste.</p>
+          <p class="credit">Portée par Karoline Kilgaard</p>
+          <a href="/contact.html" class="cta-button small">Contacter l’agence</a>
+        </div>
+      </div>
+
+      <div class="piece-card reveal-on-scroll">
+        <img src="images/grandiere-tiered-tulle.jpg" alt="Jupe Grandière – Multi-étages tulle volumineux">
+        <div class="piece-info">
+          <h3>Jupe Tiers Volants</h3>
+          <p class="description">Tulle superposé en étages généreux, construction aérienne et précise. Une exploration des volumes qui reste ancrée dans le mouvement réel du corps.</p>
+          <p class="credit">Collection Grandière</p>
+          <a href="/contact.html" class="cta-button small">Contacter l’agence</a>
+        </div>
+      </div>
+
+      <div class="piece-card reveal-on-scroll coming-soon">
+        <div class="placeholder">À venir – Nouvelles pièces</div>
+        <div class="piece-info">
+          <h3>FW 2025/26</h3>
+          <p class="description">Créations en cours de développement. Suivez nos news pour les découvrir portées par nos talents.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="collection-cta reveal-on-scroll">
+      <h2>Intéressé·e par Grandière ?</h2>
+      <p>Pour des informations, des essayages, des collaborations ou des commandes sur mesure, l’équipe est à votre disposition.</p>
+      <a href="/contact.html" class="cta-button">Nous écrire</a>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 Comtesse de La Grandière – Agence de mannequins</p>
+    <p>Grandière – Pièces couture pour une présence authentique</p>
+  </footer>
+
+  <script>
+    const revealElements = document.querySelectorAll('.reveal-on-scroll');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('revealed');
+      });
+    }, { threshold: 0.15 });
+    revealElements.forEach(el => revealObserver.observe(el));
+  </script>
+
+</body>
+</html>
