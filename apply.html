@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Devenir modèle – Comtesse de La Grandière</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+      Comtesse de La Grandière
+      <span class="sub-logo">Agency</span>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="/">Accueil</a></li>
+        <li><a href="/models.html">Talents</a></li>
+        <li><a href="/news.html">News</a></li>
+        <li><a href="/boutique.html">Grandière</a></li>
+        <li><a href="/apply.html">Devenir modèle</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="apply-page">
+    <section class="form-section">
+      <h1>DEVENIR MODÈLE</h1>
+      <p class="intro reveal-on-scroll">
+        Vous avez un look unique, une forte présence et une histoire à raconter ?<br>
+        Nous sommes toujours à la recherche de nouveaux visages — des personnes avec personnalité, caractère et courage d’être soi.<br>
+        Expérimenté·e ou simplement curieux·se, nous sommes là pour vous accompagner.
+      </p>
+
+      <form 
+        name="model-application" 
+        method="POST" 
+        data-netlify="true" 
+        data-netlify-honeypot="bot-field" 
+        action="/thanks.html"
+        class="reveal-on-scroll"
+      >
+        <p hidden><label>Ne pas remplir : <input name="bot-field"></label></p>
+
+        <div class="form-grid">
+          <div><label>Nom complet *</label><input type="text" name="name" required></div>
+          <div><label>Email *</label><input type="email" name="email" required></div>
+          <div><label>Âge</label><input type="number" name="age" min="14"></div>
+          <div><label>Taille (cm) *</label><input type="number" name="height" required></div>
+          <div><label>Mensurations (facultatif)</label><input type="text" name="measurements" placeholder="ex. 85-60-90"></div>
+          <div><label>Instagram</label><input type="text" name="instagram" placeholder="@votrecompte"></div>
+        </div>
+
+        <label>Portfolio / Photos (images, PDF)</label>
+        <input type="file" name="portfolio" multiple accept="image/*,.pdf">
+
+        <label>À propos de vous / Message *</label>
+        <textarea name="message" rows="6" required placeholder="Votre parcours, votre motivation, ce qui vous rend unique..."></textarea>
+
+        <button type="submit" class="cta-button">Envoyer la candidature</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 Comtesse de La Grandière – Agence de mannequins</p>
+    <p>Grandière – Pièces couture pour une présence authentique</p>
+  </footer>
+
+  <script>
+    const revealElements = document.querySelectorAll('.reveal-on-scroll');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('revealed');
+      });
+    }, { threshold: 0.15 });
+    revealElements.forEach(el => revealObserver.observe(el));
+  </script>
+
+</body>
+</html>
