@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comtesse de La Grandière</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+      Comtesse de La Grandière
+      <span class="sub-logo">Agency</span>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="/">Accueil</a></li>
+        <li><a href="/models.html">Talents</a></li>
+        <li><a href="/news.html">News</a></li>
+        <li><a href="/boutique.html">Grandière</a></li>
+        <li><a href="/apply.html">Devenir modèle</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="news-hero">
+      <h1>NEWS<br><span>What's new?</span></h1>
+
+      <div class="welcome-model">
+        <h2>PLEASE WELCOME KAROLINE KILGAARD</h2>
+
+        <div class="carousel-gallery">
+          <div class="gallery-item reveal-on-scroll">
+            <img src="images/karoline-1.jpg" alt="Karoline Kilgaard – profil en robe Grandière">
+            <div class="overlay">
+              <h3>Karoline</h3>
+              <p>Kilgaard</p>
+              <p class="small">Robe Grandière</p>
+            </div>
+          </div>
+          <div class="gallery-item reveal-on-scroll">
+            <img src="images/karoline-2.jpg" alt="Karoline Kilgaard – pose complète en robe Grandière">
+            <div class="overlay">
+              <h3>Karoline</h3>
+              <p>Kilgaard</p>
+              <p class="small">Robe Grandière</p>
+            </div>
+          </div>
+          <div class="gallery-item reveal-on-scroll">
+            <img src="images/karoline-3.jpg" alt="Karoline Kilgaard – vue latérale en robe Grandière">
+            <div class="overlay">
+              <h3>Karoline</h3>
+              <p>Kilgaard</p>
+              <p class="small">Robe Grandière</p>
+            </div>
+          </div>
+        </div>
+
+        <p class="intro-text reveal-on-scroll">Nous sommes ravis d’accueillir Karoline au sein de la famille Comtesse de La Grandière — une présence frappante, élégante et authentique.</p>
+      </div>
+    </section>
+
+    <section class="vision-section reveal-on-scroll">
+      <div class="vision-container">
+        <h2>Une vision de la mode ancrée dans le réel</h2>
+        <div class="vision-text">
+          <p>Nous travaillons avec des corps réels, des vêtements réels, et des moments réels.</p>
+          <p>La mode n’est pas une performance figée, mais une expérience vécue — parfois légère, parfois exigeante.</p>
+          <p>Nos talents incarnent cette vérité : une élégance qui ne nie pas l’effort, une beauté qui ne masque pas la réalité du corps, une présence qui tient dans la durée. Derrière chaque image, il y a une posture, un équilibre, un instant tenu avec précision.</p>
+          <p>Nous représentons des modèles capables de porter des pièces complexes, des volumes exigeants, des constructions couture — avec calme, justesse et intelligence du geste.</p>
+          <p class="last-paragraph">Pas de surjeu. Pas de fantasme. Juste la rencontre entre un corps, un vêtement, et un regard.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="become" class="become-model reveal-on-scroll">
+      <h2>DEVENIR MODÈLE ?</h2>
+      <p>Vous avez un look unique, une forte présence et une histoire à raconter ?<br>
+      Nous sommes toujours à la recherche de nouveaux visages — des personnes avec personnalité, caractère et courage d’être soi.<br>
+      Expérimenté·e ou simplement curieux·se, nous sommes là pour vous accompagner.</p>
+      <a href="/apply.html" class="cta-button">POSTULER MAINTENANT</a>
+    </section>
+
+    <section class="collection-teaser reveal-on-scroll">
+      <h2>Grandière</h2>
+      <p>La ligne signature de l’agence : pièces couture qui célèbrent le corps réel et l’élégance vécue.</p>
+      <a href="/boutique.html" class="cta-button">Découvrir Grandière</a>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 Comtesse de La Grandière – Agence de mannequins</p>
+    <p>Grandière – Pièces couture pour une présence authentique</p>
+  </footer>
+
+  <script>
+    const revealElements = document.querySelectorAll('.reveal-on-scroll');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('revealed');
+      });
+    }, { threshold: 0.15 });
+    revealElements.forEach(el => revealObserver.observe(el));
+  </script>
+
+</body>
+</html>
