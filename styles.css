@@ -71,11 +71,11 @@ h2 { font-size: 2.5rem; margin-bottom: 1.5rem; }
   gap: 2.5rem;
   padding: 3rem 5vw;
   margin: 0 -5vw;
-  scroll-snap-type: x mandatory;           /* snap plus fort */
+  scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
-  position: relative;                      /* pour les indicateurs */
-  -webkit-overflow-scrolling: touch;       /* scroll fluide iOS */
-  overscroll-behavior-x: contain;          /* évite le back navigateur */
+  position: relative;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
 }
 
 .gallery-item {
@@ -85,13 +85,12 @@ h2 { font-size: 2.5rem; margin-bottom: 1.5rem; }
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0,0,0,0.1);
   transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
-  scroll-snap-align: start;                /* snap au début de chaque image */
+  scroll-snap-align: start;
 }
 
-/* Peek + tease image suivante sur mobile */
 @media (max-width: 768px) {
   .carousel-gallery .gallery-item {
-    flex: 0 0 85%;                         /* montre ~15% de l'image suivante */
+    flex: 0 0 85%;
   }
 }
 
@@ -150,7 +149,7 @@ h2 { font-size: 2.5rem; margin-bottom: 1.5rem; }
   transition: all 0.4s;
 }
 
-/* Flèche droite subtile (visible surtout mobile) */
+/* Flèche droite subtile */
 .carousel-gallery::before {
   content: '→';
   position: absolute;
@@ -166,12 +165,12 @@ h2 { font-size: 2.5rem; margin-bottom: 1.5rem; }
 }
 
 .carousel-gallery:not(:hover)::before {
-  opacity: 1;  /* visible par défaut sur mobile */
+  opacity: 1;
 }
 
 @media (hover: hover) {
   .carousel-gallery:hover::before {
-    opacity: 0;  /* disparaît au survol desktop */
+    opacity: 0;
   }
 }
 
@@ -203,6 +202,17 @@ h2 { font-size: 2.5rem; margin-bottom: 1.5rem; }
   padding: 6rem 5vw;
   text-align: center;
   background: #fafafa;
+}
+
+.become-model h2 {
+  font-size: 3rem;
+  white-space: nowrap;
+  display: inline-block;
+  margin-bottom: 1.5rem;
+}
+
+.become-model .no-wrap {
+  white-space: nowrap;
 }
 
 .cta-button {
@@ -424,5 +434,10 @@ footer {
     display: block;
     font-size: 1.2rem;
     padding: 1.4rem 3rem;
+  }
+
+  .become-model h2 {
+    font-size: 2.5rem;
+    white-space: nowrap;
   }
 }
