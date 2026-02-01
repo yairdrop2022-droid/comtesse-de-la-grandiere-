@@ -3,12 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact – Comtesse de La Grandière</title>
+  <title>Comtesse de La Grandière</title>
   <link rel="stylesheet" href="styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
 <body>
-
   <header>
     <div class="logo">
       Comtesse de La Grandière
@@ -26,32 +25,65 @@
     </nav>
   </header>
 
-  <main class="contact-page reveal-on-scroll">
-    <section class="contact-section">
-      <h1>CONTACT</h1>
+  <main>
+    <section class="news-hero">
+      <h1>NEWS<br><span>What's new?</span></h1>
+      <div class="welcome-model">
+        <h2>PLEASE WELCOME KAROLINE KILGAARD</h2>
 
-      <div class="contact-info">
-        <div class="contact-block">
-          <h3>Audiorama</h3>
-          <p>Avenue de Chillon 74<br>
-             1820 Territet (Montreux)<br>
-             Suisse</p>
+        <div class="carousel-container">
+          <div class="carousel-gallery" id="carousel">
+            <div class="gallery-item reveal-on-scroll">
+              <img src="images/karoline-1.png" alt="Karoline Kilgaard – profil en robe Grandière">
+              <div class="overlay">
+                <h3>Karoline</h3>
+                <p>Kilgaard</p>
+                <p class="small">Robe Grandière</p>
+              </div>
+            </div>
+            <div class="gallery-item reveal-on-scroll">
+              <img src="images/karoline-2.png" alt="Karoline Kilgaard – pose complète en robe Grandière">
+              <div class="overlay">
+                <h3>Karoline</h3>
+                <p>Kilgaard</p>
+                <p class="small">Robe Grandière</p>
+              </div>
+            </div>
+            <div class="gallery-item reveal-on-scroll">
+              <img src="images/karoline-3.png" alt="Karoline Kilgaard – vue latérale en robe Grandière">
+              <div class="overlay">
+                <h3>Karoline</h3>
+                <p>Kilgaard</p>
+                <p class="small">Robe Grandière</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Indicateurs de pagination (dots) -->
+          <div class="carousel-indicators" id="carouselIndicators">
+            <button class="indicator active" data-slide="0" aria-label="Image 1"></button>
+            <button class="indicator" data-slide="1" aria-label="Image 2"></button>
+            <button class="indicator" data-slide="2" aria-label="Image 3"></button>
+          </div>
         </div>
 
-        <div class="contact-block">
-          <h3>Téléphone / WhatsApp</h3>
-          <p>
-            <a href="https://wa.me/41793892620" target="_blank" rel="noopener noreferrer">
-              079 389 26 20
-            </a>
-          </p>
-          <small>(cliquez pour ouvrir WhatsApp)</small>
-        </div>
+        <p class="intro-text reveal-on-scroll">Nous sommes ravis d’accueillir Karoline au sein de la famille Comtesse de La Grandière — une présence frappante, élégante et authentique.</p>
       </div>
+    </section>
 
-      <p class="contact-note">
-        Pour toute demande de collaboration, casting, presse ou information générale, n’hésitez pas à nous contacter directement par téléphone ou WhatsApp.
-      </p>
+    <!-- Le reste de tes sections (vision, become, collection) reste inchangé -->
+    <section class="vision-section reveal-on-scroll">
+      <!-- ... ton contenu vision ... -->
+    </section>
+
+    <section id="become" class="become-model reveal-on-scroll">
+      <h2 class="no-wrap">DEVENIR MODÈLE ?</h2>
+      <p><!-- ton texte --></p>
+      <a href="/apply.html" class="cta-button">POSTULER MAINTENANT</a>
+    </section>
+
+    <section class="collection-teaser reveal-on-scroll">
+      <!-- ... ton contenu Grandière ... -->
     </section>
   </main>
 
@@ -68,7 +100,34 @@
       });
     }, { threshold: 0.15 });
     revealElements.forEach(el => revealObserver.observe(el));
-  </script>
 
+    // Gestion des dots : mettre à jour le dot actif quand on swipe
+    const carousel = document.getElementById('carousel');
+    const indicators = document.querySelectorAll('.indicator');
+
+    if (carousel && indicators.length > 0) {
+      const updateActiveIndicator = () => {
+        const index = Math.round(carousel.scrollLeft / carousel.clientWidth);
+        indicators.forEach((dot, i) => {
+          dot.classList.toggle('active', i === index);
+        });
+      };
+
+      carousel.addEventListener('scroll', updateActiveIndicator);
+
+      // Clic sur les dots pour aller à l'image
+      indicators.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+          carousel.scrollTo({
+            left: index * carousel.clientWidth,
+            behavior: 'smooth'
+          });
+        });
+      });
+
+      // Mise à jour initiale
+      updateActiveIndicator();
+    }
+  </script>
 </body>
 </html>
