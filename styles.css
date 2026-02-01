@@ -64,7 +64,7 @@ h2 { font-size: 2.5rem; margin-bottom: 1.5rem; }
   transform: translateY(0);
 }
 
-/* Carousel Karoline – amélioré pour mobile */
+/* Carousel Karoline */
 .carousel-gallery {
   display: flex;
   overflow-x: auto;
@@ -129,48 +129,40 @@ h2 { font-size: 2.5rem; margin-bottom: 1.5rem; }
 .overlay p { font-size: 1.3rem; opacity: 0.9; }
 .small { font-size: 1rem; opacity: 0.75; margin-top: 0.5rem; font-style: italic; }
 
-/* Dots indicateurs en bas du carousel */
-.carousel-gallery::after {
-  content: '';
+/* Flèche swipe visible dès le chargement */
+.swipe-hint {
   position: absolute;
-  bottom: 1.5rem;
-  left: 50%;
-  transform: translateX(-50%);
+  bottom: 2.5rem;
+  right: 2rem;
+  background: rgba(0,0,0,0.55);
+  color: white;
+  padding: 0.8rem 1.6rem;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 500;
   display: flex;
-  gap: 0.8rem;
-  z-index: 10;
-}
-
-.carousel-gallery::after span {
-  width: 10px;
-  height: 10px;
-  background: rgba(255,255,255,0.5);
-  border-radius: 50%;
-  transition: all 0.4s;
-}
-
-/* Flèche droite subtile */
-.carousel-gallery::before {
-  content: '→';
-  position: absolute;
-  right: 1rem;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 3.5rem;
-  color: rgba(255,255,255,0.7);
+  align-items: center;
+  gap: 0.6rem;
+  z-index: 15;
   pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.5s;
-  z-index: 5;
+  opacity: 0.95;
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
-.carousel-gallery:not(:hover)::before {
-  opacity: 1;
+.swipe-hint::after {
+  content: '→';
+  font-size: 1.5rem;
+  animation: pulseArrow 2s infinite;
 }
 
-@media (hover: hover) {
-  .carousel-gallery:hover::before {
-    opacity: 0;
+@keyframes pulseArrow {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(10px); }
+}
+
+@media (min-width: 769px) {
+  .swipe-hint {
+    display: none;
   }
 }
 
