@@ -39,14 +39,12 @@
         method="POST"
         data-netlify="true"
         action="/thanks.html"
-        enctype="multipart/form-data"          <!-- Ajouté : obligatoire pour file upload -->
+        enctype="multipart/form-data"
         class="reveal-on-scroll"
       >
-        <!-- Honeypot anti-spam (Netlify le détecte et filtre si rempli) -->
+        <!-- Honeypot anti-spam -->
         <p hidden>
-          <label>Ne pas remplir ce champ :<br>
-            <input name="bot-field" tabindex="-1" autocomplete="off">
-          </label>
+          <label>Ne pas remplir : <input name="bot-field" tabindex="-1" autocomplete="off"></label>
         </p>
 
         <div class="form-grid">
@@ -76,15 +74,35 @@
           </div>
         </div>
 
-        <div>
-          <label for="portfolio">Portfolio / Photos (images, PDF – plusieurs fichiers possibles)</label>
-          <input type="file" id="portfolio" name="portfolio" multiple accept="image/jpeg,image/png,image/webp,.pdf">
-          <small>Max ~8 Mo total. Seul le premier fichier est garanti ; pour plusieurs, renommez-les clairement.</small>
+        <!-- Section portfolio améliorée -->
+        <div class="portfolio-section">
+          <label>Portfolio / Photos / Book (images ou PDF)</label>
+          <p class="help-text">
+            Vous pouvez joindre jusqu’à 3 fichiers (photos de face/profil, book PDF, etc.).<br>
+            <strong>Limite totale : environ 8 Mo pour l’ensemble de la candidature</strong> (texte + fichiers).<br>
+            Formats acceptés : JPG, PNG, WebP, PDF.<br>
+            Si votre book est plus volumineux, mettez plutôt un lien vers votre Instagram ou un drive dans le message ci-dessous.
+          </p>
+
+          <div class="file-input">
+            <label for="portfolio1">Fichier 1 (recommandé – photo principale ou page 1)</label>
+            <input type="file" id="portfolio1" name="portfolio1" accept="image/jpeg,image/png,image/webp,.pdf">
+          </div>
+
+          <div class="file-input">
+            <label for="portfolio2">Fichier 2 (optionnel)</label>
+            <input type="file" id="portfolio2" name="portfolio2" accept="image/jpeg,image/png,image/webp,.pdf">
+          </div>
+
+          <div class="file-input">
+            <label for="portfolio3">Fichier 3 (optionnel)</label>
+            <input type="file" id="portfolio3" name="portfolio3" accept="image/jpeg,image/png,image/webp,.pdf">
+          </div>
         </div>
 
         <div>
           <label for="message">À propos de vous / Message *</label>
-          <textarea id="message" name="message" rows="6" required placeholder="Votre parcours, votre motivation, ce qui vous rend unique..."></textarea>
+          <textarea id="message" name="message" rows="6" required placeholder="Votre parcours, votre motivation, ce qui vous rend unique... (vous pouvez aussi mettre un lien vers votre book ici si les fichiers sont trop lourds)"></textarea>
         </div>
 
         <button type="submit" class="cta-button">Envoyer la candidature</button>
