@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact – Comtesse de La Grandière</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+      Comtesse de La Grandière
+      <span class="sub-logo">Agency</span>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="/">Accueil</a></li>
+        <li><a href="/models.html">Talents</a></li>
+        <li><a href="/news.html">News</a></li>
+        <li><a href="/boutique.html">Grandière</a></li>
+        <li><a href="/apply.html">Devenir modèle</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="contact-page reveal-on-scroll">
+    <section class="contact-section">
+      <h1>CONTACT</h1>
+
+      <div class="contact-info">
+        <div class="contact-block">
+          <h3>Audiorama</h3>
+          <p>Avenue de Chillon 74<br>
+             1820 Territet (Montreux)<br>
+             Suisse</p>
+        </div>
+
+        <div class="contact-block">
+          <h3>Téléphone / WhatsApp</h3>
+          <p>
+            <a href="https://wa.me/41793892620" target="_blank" rel="noopener noreferrer">
+              079 389 26 20
+            </a>
+          </p>
+          <small>(cliquez pour ouvrir WhatsApp)</small>
+        </div>
+      </div>
+
+      <p class="contact-note">
+        Pour toute demande de collaboration, casting, presse ou information générale, n’hésitez pas à nous contacter directement par téléphone ou WhatsApp.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 Comtesse de La Grandière – Agence de mannequins</p>
+    <p>Grandière – Pièces couture pour une présence authentique</p>
+  </footer>
+
+  <script>
+    const revealElements = document.querySelectorAll('.reveal-on-scroll');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('revealed');
+      });
+    }, { threshold: 0.15 });
+    revealElements.forEach(el => revealObserver.observe(el));
+  </script>
+
+</body>
+</html>
