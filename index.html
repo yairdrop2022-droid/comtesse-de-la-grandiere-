@@ -30,7 +30,7 @@
       <h1>NEWS<br><span>What's new?</span></h1>
       <div class="welcome-model">
         <h2>PLEASE WELCOME KAROLINE KILGAARD</h2>
-        <div class="carousel-gallery">
+        <div class="carousel-gallery" id="carousel">
           <div class="gallery-item reveal-on-scroll">
             <img src="images/karoline-1.png" alt="Karoline Kilgaard – profil en robe Grandière">
             <div class="overlay">
@@ -56,6 +56,12 @@
             </div>
           </div>
         </div>
+
+        <!-- Flèche swipe visible dès le chargement -->
+        <div class="swipe-hint" id="swipeHint">
+          <span>Swipe pour voir plus</span>
+        </div>
+
         <p class="intro-text reveal-on-scroll">Nous sommes ravis d’accueillir Karoline au sein de la famille Comtesse de La Grandière — une présence frappante, élégante et authentique.</p>
       </div>
     </section>
@@ -101,6 +107,25 @@
       });
     }, { threshold: 0.15 });
     revealElements.forEach(el => revealObserver.observe(el));
+
+    // Gestion de la flèche swipe : disparaît après le premier swipe
+    const carousel = document.getElementById('carousel');
+    const swipeHint = document.getElementById('swipeHint');
+
+    if (carousel && swipeHint) {
+      let hasScrolled = false;
+
+      carousel.addEventListener('scroll', () => {
+        if (!hasScrolled) {
+          hasScrolled = true;
+          swipeHint.style.opacity = '0';
+          swipeHint.style.transform = 'translateY(20px)';
+          setTimeout(() => {
+            swipeHint.style.display = 'none';
+          }, 600);
+        }
+      });
+    }
   </script>
 </body>
 </html>
