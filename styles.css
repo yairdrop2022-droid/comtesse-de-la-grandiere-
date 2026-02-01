@@ -64,15 +64,18 @@ h2 { font-size: 2.5rem; margin-bottom: 1.5rem; }
   transform: translateY(0);
 }
 
-/* Carousel Karoline */
+/* Carousel Karoline – amélioré pour mobile */
 .carousel-gallery {
   display: flex;
   overflow-x: auto;
   gap: 2.5rem;
   padding: 3rem 5vw;
   margin: 0 -5vw;
-  scroll-snap-type: x proximity;
+  scroll-snap-type: x mandatory;           /* snap plus fort */
   scroll-behavior: smooth;
+  position: relative;                      /* pour les indicateurs */
+  -webkit-overflow-scrolling: touch;       /* scroll fluide iOS */
+  overscroll-behavior-x: contain;          /* évite le back navigateur */
 }
 
 .gallery-item {
@@ -82,6 +85,14 @@ h2 { font-size: 2.5rem; margin-bottom: 1.5rem; }
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0,0,0,0.1);
   transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  scroll-snap-align: start;                /* snap au début de chaque image */
+}
+
+/* Peek + tease image suivante sur mobile */
+@media (max-width: 768px) {
+  .carousel-gallery .gallery-item {
+    flex: 0 0 85%;                         /* montre ~15% de l'image suivante */
+  }
 }
 
 .gallery-item:hover {
@@ -118,6 +129,51 @@ h2 { font-size: 2.5rem; margin-bottom: 1.5rem; }
 .overlay h3 { font-size: 2.4rem; margin-bottom: 0.3rem; }
 .overlay p { font-size: 1.3rem; opacity: 0.9; }
 .small { font-size: 1rem; opacity: 0.75; margin-top: 0.5rem; font-style: italic; }
+
+/* Dots indicateurs en bas du carousel */
+.carousel-gallery::after {
+  content: '';
+  position: absolute;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.8rem;
+  z-index: 10;
+}
+
+.carousel-gallery::after span {
+  width: 10px;
+  height: 10px;
+  background: rgba(255,255,255,0.5);
+  border-radius: 50%;
+  transition: all 0.4s;
+}
+
+/* Flèche droite subtile (visible surtout mobile) */
+.carousel-gallery::before {
+  content: '→';
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 3.5rem;
+  color: rgba(255,255,255,0.7);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.5s;
+  z-index: 5;
+}
+
+.carousel-gallery:not(:hover)::before {
+  opacity: 1;  /* visible par défaut sur mobile */
+}
+
+@media (hover: hover) {
+  .carousel-gallery:hover::before {
+    opacity: 0;  /* disparaît au survol desktop */
+  }
+}
 
 /* Vision section */
 .vision-section {
@@ -366,5 +422,7 @@ footer {
     max-width: 400px;
     margin: 2.5rem auto 0;
     display: block;
+    font-size: 1.2rem;
+    padding: 1.4rem 3rem;
   }
 }
